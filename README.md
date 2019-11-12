@@ -1,24 +1,22 @@
-# README
+# Instructions
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hello, This is a two hours task, It is funny and could test how are you familiar with basics of rails.
 
-Things you may want to cover:
+to run this task:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. clone the repo
+2. run the following:
+   
+        rake db:create
+        rake db:migrate
+        rake load:run_all # to seed the csv files
+ 
+ please note you will need postgresql to work with the database.yml set under `config/database.yml`
+ 
+ 3. go to `localhost:3000`
+ 4. the search is filtering the movies by the actor
+ 
+ # Next plan
+ 
+ 1. writing test cases
+ 

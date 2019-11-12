@@ -1,0 +1,81 @@
+<%= render 'shared/navbar' %>
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+
+            <h1 class="my-4">Movies
+                <small>list</small>
+            </h1>
+
+            <div id="movies-cards-div">
+                <%= render 'dashboards/partials/list_movies_cards', movies: @movies %>
+            </div>
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+            <!-- Filters Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Filters</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="search by actor" id="search-movies-celeb-name-input">
+                                        <span class="input-group-btn">
+                      <button class="btn btn-secondary" type="button" id="search-movies-celeb-name-search-btn">Go!</button>
+                    </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+<script>
+    $(document).ready(function () {
+
+        //search_movies
+
+        $('#search-movies-celeb-name-search-btn').click(function() {
+            var search_term = $('#search-movies-celeb-name-input').val();
+            send_ajax_request("get", "<%= search_movies_path %>", {by_actor_name:search_term}, function() {})
+        });
+
+        function send_ajax_request(method, url, data, success) {
+            $.ajax({
+                url: url,
+                type: method,
+                data: data,
+                dataType: "script",
+                success: success,
+                error: function (xhr) {
+                }
+            });
+        }
+    });
+</script>

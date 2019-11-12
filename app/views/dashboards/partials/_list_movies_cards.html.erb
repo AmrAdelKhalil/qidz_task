@@ -1,0 +1,26 @@
+<% movies.each do |movie| %>
+  <!-- Blog Post -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h2 class="card-title"><%= movie.name %></h2>
+      <p class="card-text">Release date: <%= movie.year %>
+      </p>
+      </br>
+      <p class="card-text">description: <%= movie.description %>
+      </p>
+      </br>
+      <p class="card-text">Film location: <%= movie.film_location %>
+      </p>
+      </br>
+      <p class="card-text">Country: <%= movie.country %>
+      </p>
+      </br>
+      <p class="card-text">Director: <%= movie.director.name %>
+      </p>
+      </br>
+      <p class="card-text">actors:
+        <%= movie.actors.map(&:name).join(', ') %>
+      </p>
+    </div>
+  </div>
+<% end %>
